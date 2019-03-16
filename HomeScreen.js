@@ -1,38 +1,37 @@
+
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image
-} from "react-native";
-
-//library imports
-import { Icon, Button, Container, Header, Content, Left } from 'native-base'
-
-class HomeScreen extends Component {
-
-  render() {
-    return (
-
-      <Container>
-        <Content
-          contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 10 }}>
-            <Text style={{ color: 'white' }}>Go To Settings Screen</Text>
-        </Content>
-
-      </Container>
-
-    )
-  }
-
-}
-
-export default HomeScreen;
-
+import { StyleSheet, Text, Button, View } from "react-native";
+import { StackNavigator } from "react-navigation";
 
 const styles = StyleSheet.create({
-  icon: {
-    width: 24,
-    height: 24,
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF"
   },
+  a: {
+    fontSize: 50,
+    textAlign: "center",
+    margin: 15
+  },
+
 });
+
+const HomeScreen = props => {
+  const { navigate } = props.navigation;
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.a}>
+        Hello World
+      </Text>
+      <Button
+        onPress={() => navigate("SecondScreen")}
+        title="Go to Next Screen"
+      />
+    </View>
+  );
+};
+
+export default HomeScreen;
